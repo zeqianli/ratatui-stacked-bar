@@ -1,4 +1,3 @@
-use crossterm::event;
 use ratatui::{
     buffer::Buffer,
     layout::Rect,
@@ -9,7 +8,7 @@ use std::usize;
 
 use ratatui::symbols::bar::{NINE_LEVELS, Set};
 
-struct StackedSparkline {
+pub struct StackedSparkline {
     max: Option<usize>,
 
     data: Vec<(Vec<usize>, Color)>, // bottom, top
@@ -133,7 +132,6 @@ impl Widget for StackedSparkline {
 
                         if accumulator >= cell_height {
                             // render
-                            //panic!("{:?}{:?}{:?}", top_two_indexes, top_two_accumulators, i);
 
                             // Note to maintain the order of these two colors
                             let (fg_height, fg_color, bg_color) =
@@ -184,7 +182,7 @@ impl Widget for StackedSparkline {
         }
     }
 }
-
+/*
 fn main() {
     let mut terminal = ratatui::init();
 
@@ -208,3 +206,4 @@ fn main() {
 
     ratatui::restore();
 }
+ */
